@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Check button</title>
+  </head>
+  <body>
+    <div id="m1">
+      <p id="p1">SUBSCRIBE</p>
+      <div id="m2"></div>
+      <div id="s1"></div>
+      <div id="s2"></div>
+    </div>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
+
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100vh;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgb(254, 230, 255);
+      }
+
+      #m1 {
+        width: 200px;
+        height: 100px;
+        display: flex;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        background: radial-gradient(ellipse at top, #ff00b3, transparent),
+          radial-gradient(ellipse at bottom, #463042, transparent);
+        border-radius: 40px;
+        transform: translateY(-150%) scale(0);
+        animation: m1 1.2s 0.7s 1 ease-in-out forwards;
+      }
+
+      @keyframes m1 {
+        0% {
+          transform: translateY(-50%) scale(0);
+          opacity: 0;
+        }
+        20% {
+          transform: translateY(25%);
+          opacity: 1;
+        }
+        40% {
+          transform: translateY(-25%);
+          opacity: 1;
+        }
+        50% {
+          transform: translateY(12%);
+          opacity: 1;
+        }
+        60% {
+          transform: translateY(-12%);
+          opacity: 1;
+        }
+        70% {
+          transform: translateY(7%);
+          opacity: 1;
+        }
+        80% {
+          transform: translateY(0%);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(0%) scale(1);
+          opacity: 1;
+        }
+      }
+
+      #m1 p {
+        font-family: "Roboto", sans-serif;
+        font-size: 30px;
+        letter-spacing: 2.5px;
+        color: white;
+        animation: p 0.2s 0.2s 0.5 ease-out forwards;
+      }
+
+      @keyframes p {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      #m1 #s1 {
+        width: 10px;
+        height: 0px;
+        left: 28px;
+        top: 30px;
+        display: none;
+        background: white;
+        position: absolute;
+        border-radius: 10px;
+        animation: s1 0.5s 0.2s 1 ease-in-out forwards;
+      }
+
+      @keyframes s1 {
+        0% {
+          height: 0px;
+        }
+        100% {
+          height: 50px;
+        }
+      }
+
+      #m1 #s2 {
+        width: 0px;
+        height: 10px;
+        left: 30px;
+        top: 72px;
+        position: absolute;
+        display: none;
+        background: white;
+        border-radius: 10px;
+        transform: rotate(-40deg);
+        transform-origin: 0% 50%;
+        animation: s2 0.5s 0.5s 0.5 ease-in-out forwards;
+      }
+
+      @keyframes s2 {
+        0% {
+          width: 0px;
+        }
+        100% {
+          width: 140px;
+        }
+      }
+    </style>
+
+    <script>
+      var m1 = document.getElementById("m1");
+      var m2 = document.getElementById("m2");
+      var p1 = document.getElementById("p1");
+      var s1 = document.getElementById("s1");
+      var s2 = document.getElementById("s2");
+
+      m1.addEventListener("click", func, false);
+
+      function func() {
+        m1.style.width = "100px";
+        m1.style.height = "100px";
+        m1.style.borderRadius = "50%";
+        m1.style.transition = "all .5s ease-out";
+        p1.style.display = "none";
+
+        setTimeout(delayOne, 500);
+        function delayOne() {
+          m2.style.display = "block";
+        }
+
+        setTimeout(delayTwo, 200);
+        function delayTwo() {
+          m2.style.visibility = "hidden";
+          s1.style.display = "block";
+          s2.style.display = "block";
+        }
+      }
+    </script>
+  </body>
+</html>
